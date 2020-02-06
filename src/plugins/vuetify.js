@@ -1,12 +1,7 @@
 import Vue from 'vue';
-import Vuetify, { VBtn } from 'vuetify/lib';
-// import scl from '@djane/summa-components'
+import Vuetify from 'vuetify/lib';
 
-
-Vue.use(Vuetify, {
-  components: { VBtn }
-});
-// Vue.use(scl)
+Vue.use(Vuetify);
 
 export default new Vuetify({
 });

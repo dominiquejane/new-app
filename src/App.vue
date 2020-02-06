@@ -1,56 +1,55 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <div>
+    <My-Button></My-Button>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <div class="m-4 max-w-2xl">
+      <S-Input placeholder="hey" />
+      <form action="submit" class="max-w-2xl border rounded-lg bg-gray-100">
+          <div class="m-2 p-2">
+            <label for="form-name">Name:</label>
+            <div id="form-name">
+              <S-Input placeholder="First Name" class="my-2"/>
+              <S-Input placeholder="Last Name" />
+            </div>
+          </div>
+          <div class="m-2 p-2">
+            <label for="form-email">Email:</label>
+            <S-Input id="form-email" type="email" placeholder="email@example.com" />
+          </div>
+          <div class="flex justify-center m-2 p-2">
+            <S-Button title="Submit Form" class="bg-teal-400 text-teal-900 hover:bg-teal-500" />
+          </div>
+        </form>
+    </div>
 
-      <v-spacer></v-spacer>
+    <div class="m-4 max-w-2xl">
+      <S-Button title="hey new button" />
+      <S-Button title="has tailwind classes" class="text-green-500"/>
+      <S-Button title="Small Button" class="block" :class="['s-button--small']"/>
+    </div>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+    <div class="m-4 max-w-2xl">
+      <S-Email-Form />
+      <S-Email-Form blurb="Sign up for our newsletter!" submitText="Submit"/>
+      <S-Email-Form :buttonClasses="['bg-purple-300', 'text-purple-900', 'hover:bg-purple-400']"/>
+    </div>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+    <div class="m-4 max-w-2xl">
+      <S-Cookies-Banner :clearOnReload="true"/>
+    </div>
+
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Components from '@djane/summa-components'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    ...Components
   },
 
   data: () => ({
@@ -58,7 +57,3 @@ export default {
   }),
 };
 </script>
-
-<style lang="stylus">
-
-</style>
